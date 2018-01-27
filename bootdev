@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ROOT=${ROOT:-http://127.0.0.1:8000}
+RESOURCE=${1:-/}
+ACTION=${2:-Hdd}
+
+set -eux
+curl -X PATCH -H "Content-Type: application/json" -d "{\"Boot\": {\"BootSourceOverrideEnabled\": \"Once\", \"BootSourceOverrideTarget\": \"$ACTION\"}}" $ROOT$RESOURCE

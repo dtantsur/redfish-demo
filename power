@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ROOT=${ROOT:-http://127.0.0.1:8000}
+RESOURCE=${1:-/}
+ACTION=${2:-On}
+QUERY=${3:-.}
+
+set -eux
+curl -X POST -H "Content-Type: application/json" -d "{\"ResetType\": \"$ACTION\"}" $ROOT$RESOURCE

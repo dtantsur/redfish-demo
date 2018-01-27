@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ROOT=${ROOT:-http://127.0.0.1:8000}
+RESOURCE=${1:-/}
+QUERY=${2:-.}
+
+cmd="curl $ROOT$RESOURCE"
+echo "> $cmd"
+$cmd | jq $QUERY
